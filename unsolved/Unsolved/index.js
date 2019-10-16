@@ -36,14 +36,17 @@ const questions =
             axios.get(`https://api.github.com/users/${answers.name}`).then(function(profile){
                 console.log(profile.data);
                 const bio = profile.data.bio;
-                console.log(profile.data.name);
+                const name = profile.data.name;
+                const company = profile.data.company;
+                const ghLink = profile.data.html_url;
+                const location = profile.data.location;
                 const followers = profile.data.followers;
                 const following = profile.data.following;
                 const repositories = repos.data.length;
                 const avatar = repos.data[0].owner.avatar_url;
                 const starCount = repos.data.reduce(starCounter,0);
                 console.log(starCount);
-                const html = genHTML(answers, starCount, repositories, avatar, followers, following, bio);
+                const html = genHTML(answers, starCount, repositories, avatar, followers, following, bio, name, company, ghLink, location);
                 writeToFile(filename, html);
             });
             

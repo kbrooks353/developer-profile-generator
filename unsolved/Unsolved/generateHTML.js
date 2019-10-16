@@ -25,7 +25,7 @@ const colors = {
   }
 };
 
-function generateHTML(data, starCount, repositories, avatar, followers, following, bio) {
+function generateHTML(data, starCount, repositories, avatar, followers, following, bio, name, company, ghLink, location) {
   return `<!DOCTYPE html>
 <html lang="en">
    <head>
@@ -178,11 +178,11 @@ function generateHTML(data, starCount, repositories, avatar, followers, followin
             <div class="photo-header">
               <img src="${avatar}" alt="github profile picture">
               <h1>hi</h1>
-              <h2>give it some</h2>
-              <h3 class="workExp-date">info pls</h3>
+              <h2>My name is ${name}</h2>
+              <h3 class="workExp-date">${company}</h3>
               <div class="links-nav">
-                <a class="nav-link" href="">location</a>
-                <a class="nav-link" href="">link</a>
+                <a class="nav-link" href="https://www.google.com/maps/place/${location}">${location}</a>
+                <a class="nav-link" href="${ghLink}">GitHub</a>
               </div>
             </div>
           </div>
